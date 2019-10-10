@@ -10,7 +10,7 @@ The installation is easy. It is dockerized.
 - `sudo docker pull scrapinghub/splash`
 
 And you can run it with
-- `sudo docker run -p 8050:8050 scrapinghub/splash`
+- `sudo docker run -p 8050:8050 scrapinghub/splash --disable-private-mode`
 
 Additionally it needs to have the Scrapy plugin installed
 - `sudo pip install scrapy-splash`
