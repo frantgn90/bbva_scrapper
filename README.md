@@ -9,8 +9,18 @@ In order to deal with the js embedded in the webpage that is generating dynamic 
 The installation is easy. It is dockerized.
 - `sudo docker pull scrapinghub/splash`
 
-And you can run it with
-- `sudo docker run -p 8050:8050 scrapinghub/splash --disable-private-mode`
-
 Additionally it needs to have the Scrapy plugin installed
 - `sudo pip install scrapy-splash`
+
+## Run the scraper
+
+In order tu run the scraper you should 1) Run the Splash service by executing 
+- `sudo docker run -p 8050:8050 scrapinghub/splash --disable-private-mode --max-timeout 3600`
+
+And then just execute the scraper as it used to be with scrapy
+- `scrapy crawl bbva -a user=<user> -a password=<password> -o results.jl`
+
+This scraper accept few parameters:
+- `user` is your BBVA user
+- `password` is the password for your user
+- `debug` just save the html and a png of the webpage has been scraped. It allows the `true|false` values. `false` by default
