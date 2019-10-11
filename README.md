@@ -1,5 +1,20 @@
 # BBVA scrapper
 
+This scraper get the last movements on your BBVA account.
+
+## Run the scraper
+
+In order tu run the scraper you should 1) Run the Splash service by executing 
+- `sudo docker run -p 8050:8050 scrapinghub/splash --disable-private-mode --max-timeout 3600`
+
+And then 2) just execute the scraper as it used to be with scrapy
+- `scrapy crawl bbva -a user=<user> -a password=<password> -o results.jl`
+
+This scraper accepts few parameters:
+- `user` is your BBVA user (required)
+- `password` is the password for your user (required)
+- `debug` just save the html and a png of the webpage that has been scraped. It allows the `true|false` values. `false` by default
+
 ## Dependencies
 
 ### Splash
@@ -11,16 +26,3 @@ The installation is easy. It is dockerized.
 
 Additionally it needs to have the Scrapy plugin installed
 - `sudo pip install scrapy-splash`
-
-## Run the scraper
-
-In order tu run the scraper you should 1) Run the Splash service by executing 
-- `sudo docker run -p 8050:8050 scrapinghub/splash --disable-private-mode --max-timeout 3600`
-
-And then just execute the scraper as it used to be with scrapy
-- `scrapy crawl bbva -a user=<user> -a password=<password> -o results.jl`
-
-This scraper accept few parameters:
-- `user` is your BBVA user
-- `password` is the password for your user
-- `debug` just save the html and a png of the webpage has been scraped. It allows the `true|false` values. `false` by default

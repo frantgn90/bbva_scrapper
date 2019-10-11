@@ -10,6 +10,8 @@ class BBVASpider(scrapy.Spider):
         self.user = getattr(self, "user", None)
         self.password = getattr(self, "password", None)
         self.debug = getattr(self, "debug", "false") == "true"
+        assert self.user is not None and self.password is not None
+
         urls = ['https://www.bbva.es/']
 
         cssselector = '#CUENTAS_ORDINARIAS_Y_DIVISA > div > table > tbody > tr > th > div > div > div > p.c-link.text_14.text-medium'
